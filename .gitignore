@@ -28,3 +28,4 @@ Game Assets/
 
 #Ignore Godot Addons folder
 Addons/
+/project.godot
