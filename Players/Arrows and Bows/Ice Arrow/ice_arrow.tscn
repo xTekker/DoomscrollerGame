@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn6gfh2mlua0i"]
+
+[ext_resource type="Script" path="res://Players/Arrows and Bows/Ice Arrow/ice_arrow.gd" id="1_dj1b7"]
+[ext_resource type="Texture2D" uid="uid://idsmjcn5a7oy" path="res://Game Assets/Characters/Archer/Arrow Variants/IceArrow.png" id="2_ttva8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwf10"]
+size = Vector2(21, 3.5)
+
+[node name="IceArrow" type="Area2D"]
+script = ExtResource("1_dj1b7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ttva8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.25)
+shape = SubResource("RectangleShape2D_vwf10")
