@@ -22,10 +22,6 @@ Game Assets/
 /icon.svg
 /icon.svg.import
 
-#Ignore readme and other .md files
-.md 
-/readme.md
-
 #Ignore Godot Addons folder
 Addons/
 /project.godot
