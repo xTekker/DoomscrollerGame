@@ -4,48 +4,10 @@ extends CharacterBody2D
 @onready var aplay = $AnimationPlayer
 @onready var atree = $AnimationTree
 @onready var sprite = $Sprite2D
-#Arrow OnReady Variables
 
-#Movement OnReady Variables
-@export var Speed = 25.0
-@export var run_speed = 50
-@export var jump_impulse = -100
-@export var gravity = 300
-#Fire Rate and Arrow Variables
-@export var IceArrow : PackedScene
 var can_shoot = true
 var shoot_cooldown = 1.2
-
-func _ready():
-	atree.active = true
-	atree["parameters/conditions/defaultanims"] = true
-func _process(delta):
-	update_animation_parameters()
-	
-func _physics_process(delta):
-	
-	velocity.y += gravity * delta
-	if Input.is_action_pressed("move_right"):
-		$Sprite2D.flip_h = false
-		velocity.x = Speed
-	elif Input.is_action_pressed("move_left"):
-		$Sprite2D.flip_h = true
-		velocity.x = -Speed
-	else:
-		velocity.x = 0
-		
-	if Input.is_action_just_pressed("jump") && is_on_floor():
-		velocity.y =  jump_impulse
-		
-	if Input.is_action_pressed("run_left"):
-		velocity.x = -run_speed
-		$Sprite2D.flip_h = true
-	elif Input.is_action_pressed("run_right"):
-		velocity.x = run_speed
-		$Sprite2D.flip_h = false
-		
-	move_and_slide()
-	is_on_floor()
+@export var IceArrow : PackedScene
 #Shooting Code
 func update_animation_parameters():
 #_________________Start Movement Animation Code
@@ -96,6 +58,3 @@ func shoot():
 	var b = IceArrow.instantiate()
 	add_child(b)
 	b.transform = $Marker2D.transform	
-#_________________Start Healing Animation Code
-#Item Use Animation Code
-#Look At Code
